@@ -3,7 +3,7 @@ import React from 'react'
 import categories from '../data/categories.json';
 import CategoryItem from './CategoryItem';
 
-const Categories = ({setScreenSelected}) => {
+const Categories = ({setCategorySelected}) => {
 
   return (
     <View style = {styles.container}>
@@ -11,7 +11,7 @@ const Categories = ({setScreenSelected}) => {
         styles={styles.container}
         renderItem={({item}) => <CategoryItem 
           category={item}
-          setScreenSelected = {setScreenSelected}
+          setCategorySelected = {setCategorySelected}
         />}
         data = {categories}
         keyExtractor ={category => category}

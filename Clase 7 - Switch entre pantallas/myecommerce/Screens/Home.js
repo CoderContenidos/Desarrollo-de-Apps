@@ -1,11 +1,11 @@
 import Categories from '../Components/Categories'
 import Header from '../Components/Header'
 
-const Home = ({setScreenSelected}) => {
+const Home = ({setCategorySelected}) => {
   return (
     <>
         <Header title='Categories'/>
-        <Categories setScreenSelected = {setScreenSelected}/>
+        <Categories setCategorySelected = {setCategorySelected}/>
     </>
   )
 }

@@ -3,12 +3,12 @@ import React from "react";
 import { colors } from "../Global/colors";
 import Card from "./Card";
 
-const CategoryItem = ({ category, setScreenSelected }) => {
+const CategoryItem = ({ category, setCategorySelected }) => {
 
     return (
         <Pressable
             onPress={() => {
-                setScreenSelected({ category, home: false });
+                setCategorySelected(category);
             }}
         >
             <Card style = {styles.cardContainer}>

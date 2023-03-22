@@ -1,25 +1,33 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, Pressable, StyleSheet, View, Text } from "react-native";
 import React, { useEffect, useState } from "react";
 import Header from "../Components/Header";
 import ProductItem from "../Components/ProductItem";
 import allProducts from '../data/products.json';
+import Search from "../Components/Search";
 
-const ItemListCategories = ({ category }) => {
+const ItemListCategories = ({ category, setCategorySelected }) => {
 
     const [products, setProducts] = useState([])
+    const [keyword, setKeyword] = useState("")
 
     useEffect(()=> {
         if (category) {
             const products = allProducts.filter(product => product.category === category);
-            setProducts(products);
+            const productsFiltered = products.filter(product => product.title.includes(keyword))
+            setProducts(productsFiltered);
         } else {
-            setProducts(allProducts);
+            const productsFiltered = allProducts.filter(product => product.title.includes(keyword))
+            setProducts(productsFiltered);
         }
-    }, [category])
+    }, [category, keyword])
 
     return (
         <>
-            <Header title={category} />
+            <Header title={category || "Products"} />
+            <Pressable onPress={()=> setCategorySelected("")}>
+                <Text>Go back</Text>
+            </Pressable>
+            <Search onSearch={setKeyword}/>
             <View style ={styles.container}>
                 <FlatList 
                     data={products}
