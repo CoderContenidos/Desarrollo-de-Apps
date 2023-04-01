@@ -1,0 +1,1 @@
+export const base_url = "https://ecommerce---coderhouse-f8f9a-default-rtdb.firebaseio.com/"
